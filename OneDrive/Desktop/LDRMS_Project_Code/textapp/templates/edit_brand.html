@@ -1,0 +1,29 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<div class="page-wrapper">
+    <!--page-content-wrapper-->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+            <h6 class="mb-0 text-uppercase">Update Brand</h6>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label class="form-label">Brand Name:</label>
+                            <input type="text" class="form-control" name="brandname" placeholder="Brand Name" value="{{data.brandname}}" >
+                        </div>
+                        <div class="mb-3">
+							<label class="form-label">Brand Logo:</label>
+                            <input type="file" class="form-control" name="brandlogo">
+							<img src="{% if data.brandlogo %}{{data.brandlogo.url}}{% endif %}" width="100">
+                        </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h6 class="display-3 text-uppercase text-white mb-3">Book Your Laptop or Desktop</h6>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">Book Your Laptop or Desktop</h6>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+ <!-- Car Booking Start -->
+<div class="container pb-5">
+        <div class="col-lg-12">
+                    <h2 class="mb-4">.</h2>
+                    <div class="mb-5">
+                        <form action="" method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <label>From Date*:</label>
+                                <input type="date" class="form-control" name="fromdate">
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>To Date*:</label>
+                                <input type="date" class="form-control" name="todate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <div class="date" id="date2" data-target-input="nearest">
+                                    <label>Used For*:</label>
+                                    <select type="text" class="form-control" name="typename">
+											<option>Choose Type</option>
+                                            <option>individual</option>
+                                            <option>Corporate</option>
+                                            </select>
+                                </div>
+                            </div>
+                            <div class="col-12 form-group">
+                                <div class="time" id="time2" data-target-input="nearest">
+                                    <label>Quantity*:</label>
+                                    <input type="text" class="form-control" name="quantity">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <label>Delivery Address Proof*:</label>
+                                <input type="file" class="form-control" style="height: 50px;" name="image">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 form-group">
+                                <label>Payment Method*:</label>
+                                <select class="form-control" name="payment_method" required>
+                                    <option value="">Choose Payment Method</option>
+                                    <option value="UPI">UPI</option>
+                                    <option value="Credit/Debit Card">Credit/Debit Card</option>
+                                    <option value="Wallet (Amazon Pay, Paytm, etc.)">Wallet (Amazon Pay, Paytm, etc.)</option>
+                                    <option value="GPay">GPay</option>
+                                    <option value="PhonePe">PhonePe</option>
+                                </select>
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>Payment Proof (Screenshot)*:</label>
+                                <input type="file" class="form-control" name="payment_screenshot" accept="image/*" required>
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label>Delivery Address*:</label>
+                            <textarea class="form-control py-3 px-4" rows="3" name="address" placeholder="Address" required="required"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" href="/book_laptop/">Submit</button>
+                      </form>
+                    </div>
+        </div>
+</div>
+
+{% endblock %}

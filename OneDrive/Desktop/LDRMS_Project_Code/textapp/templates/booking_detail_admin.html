@@ -1,0 +1,205 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+<div class="page-content-wrapper">
+    <!-- Content Header (Page header) -->
+        <div class="page-content">
+            <h2 class="page-breadcrumb d-none d-sm-flex align-items-center mb-3"></h2>
+
+            <h2 align="center">View Booking Details Laptop and Desktop</h2>
+
+        </div>
+
+
+    <section class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example" class="table table-bordered table-striped">
+                                <tr>
+                                    <h3 style="color:blue">
+                                        <center
+                                        <th>User Details:</th>
+                                        <center
+                                    </h3>
+                                </tr>
+                                <tr>
+                                    <th style="color:purple">Full Name</th>
+                                    <td>{{data.user.user.first_name}} {{data.user.user.last_name}}</td>
+                                    <th style="color:purple">Email</th>
+                                    <td>{{data.user.user.email}}</td>
+                                    <th style="color:purple">Mobile Number</th>
+                                    <td>{{data.user.mobile}}</td>
+                                </tr>
+
+                            </table>
+                            <table id="example1" class="table table-bordered table-striped">
+                                <tr>
+                                    <h3 style="color:blue">
+                                        <center
+                                        <th>Product Details</th>
+                                    </h3>
+                                </tr>
+
+                                <tr>
+                                    <th style="color:purple">Name of Product</th>
+                                    <td>{{data.productname.productname}}</td>
+                                    <th style="color:purple">Brand Name</th>
+                                    <td>{{data.productname.brandname}}</td>
+                                    <th style="color:purple">Processor</th>
+                                    <td>{{data.productname.processor}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="color:purple">Screen</th>
+                                    <td>{{data.productname.screen}}</td>
+                                    <th style="color:purple">RAM</th>
+                                    <td>{{data.productname.ram}}</td>
+                                    <th style="color:purple">Storage</th>
+                                    <td>{{data.productname.storage}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="color:purple">Charges</th>
+                                    <td>{{data.productname.charges}}</td>
+                                    <th style="color:purple">RentalPrice(per day)</th>
+                                    <td>{{data.productname.rentalprice}}</td>
+                                    <th style="color:purple">Product Model</th>
+                                    <td>{{data.productname.productmodel}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="color:purple" >Product Description</th>
+                                    <td colspan="12">{{data.productname.description}}</td>
+                                </tr>
+                            </table>
+                            <table id="example3" class="table table-bordered table-striped">
+                                <tr>
+                                    <h3 style="color:blue">
+                                        <center
+                                        <th>Booking Details</th>
+                                    </h3>
+                                </tr>
+
+                                <tr>
+                                    <th style="color:purple">Booking Date</th>
+                                    <td colspan="12">{{data.bookingdate}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="color:purple">From Date</th>
+                                    <td>{{data.fromdate}}</td>
+                                    <th style="color:purple">To Date</th>
+                                    <td>{{data.todate}}</td>
+                                    <th style="color:purple">Order Quantity</th>
+                                    <td>{{data.quantity}}</td>
+                                </tr>
+                                <tr>
+                                    <th style="color:purple">Total Days Of Rent</th>
+                                    <td>{{data.totaldays}}</td>
+                                    <th style="color:purple">Rental Price</th>
+                                    <td>{{data.productname.rentalprice}}</td>
+                                    <th style="color:purple">Total Cost</th>
+                                    <td>{{data.totalprice}}</td>
+                                </tr>
+
+                                <tr>
+                                    <th style="color:purple">Booking Number</th>
+                                    <td>{{data.bookingnumber}}</td>
+                                    <th style="color:purple">Brand Name</th>
+                                    <td>{{data.productname.brandname}}</td>
+                                    <th style="color:purple">Order Final Status</th>
+                                    <td>{{data.status}}</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        </table>
+
+                        {% if data.status == "pending" %}
+                        <!-- Button trigger modal -->
+                        <center>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleVerticallycenteredModal">Take action</button>
+
+                        </center>
+                        {% endif %}
+
+                        {% if data.status != "pending" %}
+                        <table id="example6" class="table table-bordered table-striped">
+                            <tr>
+                                <h3 style="color:blue">
+                                    <center>
+                                    <th>Tracking History</th></center>
+                                </h3>
+                            </tr>
+
+                            <div class="card-body">
+                                <table id="example5" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Remark</th>
+                                        <th>Status</th>
+                                        <th>TotalPrice</th>
+                                        <th>Time</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in traking %}
+                                    <tr>
+                                        <td>{{i.remark}}</td>
+                                        <td>{{i.status}}</td>
+                                        <td>{{data.totalprice}}</td>
+                                        <td>{{i.time}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+
+                                </table>
+                            </div>
+
+                        </table>
+                        {% endif %}
+                        <div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Take Action</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/change-status/{{data.id}}/" method="post">
+                                                {% csrf_token %}
+                                                <div class="form-group">
+                                                    <label>Select Status</label>
+                                                    <select name="status" class="form-control" required>
+                                                        <option value="">Choose Option</option>
+                                                        <option value="Approved">Approved</option>
+                                                        <option value="Unapproved">Unapproved</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Total Cost</label>
+                                                    <input class="form-control" name="total" value="{{data.totalprice}}" readonly>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Write your comment</label>
+                                                    <textarea class="form-control" name="comment"></textarea>
+                                                </div>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-uppercase text-white mb-3">Contact</h1>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="{% url 'home' %}">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">Contact</h6>
+        </div>
+    </div>
+    <!-- Page Header End -->
+{% for i in data %}
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <h1 class="display-4 text-uppercase text-center mb-5"><span class="text-primary">{{i.pagetitle}}</span></h1><br><br>
+            <div class="row justify-content-center">
+                <div class="col-lg-10  text-center">
+
+                    <div class="fa fa-map-marker"> {{i.description}}</div><br><br>
+                    <div class="fa fa-envelope-open"> {{i.email}}</div><br><br>
+                   <div class="fa fa-phone-square"> {{i.contactno}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

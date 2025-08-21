@@ -1,0 +1,87 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<div class="page-wrapper">
+			<!--page-content-wrapper-->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+<h6 class="mb-0 text-uppercase">Update Product Details</h6>
+							<hr>
+							<div class="card">
+								<div class="card-body">
+									<form action="" method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+										<div class="row">
+										<div class="mb-3 col-6 " >
+											<label class="form-label">Type:</label>
+											<select type="text" class="form-control" name="typename">
+											<option value="">Choose Type</option>
+                                            <option {% if data.typename == 'Laptop' %}selected{% endif %}>Laptop</option>
+                                            <option {% if data.typename == 'Desktop' %}selected{% endif %}>Desktop</option>
+                                            </select>
+                                        </div>
+										<div class="mb-3 col-6">
+											<label>Brand Name:</label>
+												<select class="form-control" name="brandname" id="brandid" style="width: 100%;" onchange="brandfield()">
+													<option value="">Select brand</option>
+													{% for i in mybrand %}
+													<option value="{{i.id}}" {% if data.brandname.id == i.id %}selected{% endif %}>{{i.brandname}}</option>
+													{% endfor %}
+												</select>
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Product Name:</label>
+											<input type="text" class="form-control" name="productname"  placeholder="Product Name" value="{{data.productname}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Processor:</label>
+											<input type="text" class="form-control" name="processor" placeholder="Processor" value="{{data.processor}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Screen:</label>
+											<input type="text" class="form-control" name="screen" placeholder="Screen" value="{{data.screen}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Ram:</label>
+											<input type="text" class="form-control" name="ram" placeholder="Ram" value="{{data.ram}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Storage:</label>
+											<input type="text" class="form-control" name="storage" placeholder="Storage" value="{{data.storage}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Charges:</label>
+											<input type="text" class="form-control" name="charges" placeholder="Charges" value="{{data.charges}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Rental Price/Day:</label>
+											<input type="text" class="form-control" name="rentalprice" placeholder="Rental Price/Day" value="{{data.rentalprice}}">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Product Model:</label>
+											<input type="text" class="form-control" name="productmodel" placeholder="Product Model" value="{{data.productmodel}}">
+										</div>
+                                           <div class="form-group">
+                                            <label>Product Description</label>
+                                            <textarea type="text" class="form-control select2bs4" name="description"
+                                                   placeholder="Product Description">{{data.description}}</textarea>
+                                           </div>
+
+                                    <div class="mb-3 col-6">
+                                        <label class="form-label">Image1</label>
+                                        <input type="file" class="form-control" name="image1">
+										<img src="{% if data.image1 %}{{data.image1.url}}{% endif %}" width="100">
+                                    </div>
+                                    <div class="mb-3 col-6">
+                                        <label class="form-label">Image2</label>
+                                        <input type="file" class="form-control" name="image2">
+										<img src="{% if data.image2 %}{{data.image2.url}}{% endif %}" width="100">
+                                    </div>
+                                    </div>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+								</div>
+							</div>
+                </div>
+            </div>
+</div>
+{% endblock %}

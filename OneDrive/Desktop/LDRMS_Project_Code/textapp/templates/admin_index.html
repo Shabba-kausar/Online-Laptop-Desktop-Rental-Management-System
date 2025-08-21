@@ -1,0 +1,272 @@
+{% load static %}
+{% load cutom_tags %}
+
+<html lang="en">
+
+
+<!-- Mirrored from codervent.com/syndash/demo/vertical/admin_index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 07:52:09 GMT -->
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>Laptop & Desktop Rental Management System</title>
+	<!--favicon-->
+	<link rel="icon" href="{% static 'assets/images/favicon-32x32.png' %}" type="image/png" />
+	<!-- Vector CSS -->
+	<link href="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet" />
+	<!--plugins-->
+	<link href="{% static 'assets/plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet" />
+	<link href="{% static 'assets/plugins/metismenu/css/metisMenu.min.css' %}" rel="stylesheet" />
+	<!-- loader-->
+	<link href="{% static 'assets/css/pace.min.css' %}" rel="stylesheet" />
+	<script src="{% static 'assets/js/pace.min.js' %}"></script>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto&amp;display=swap" />
+	<!-- Icons CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/icons.css' %}" />
+	<!-- App CSS -->
+	<link rel="stylesheet" href="{% static 'assets/css/app.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/css/dark-sidebar.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/css/dark-theme.css' %}" />
+</head>
+
+<body>
+	<!-- wrapper -->
+	<div class="wrapper">
+		<!--sidebar-wrapper-->
+		<div class="sidebar-wrapper" data-simplebar="true">
+			<div class="sidebar-header">
+				<div class="" >
+					<img style="height:70px ; width:100px" src="{% static 'img/laptop1.jpg' %}" class="logo-icon-2" alt="" />
+				</div>
+				<div>
+					<h4 class="logo-text">LDRMS</h4>
+				</div>
+				<a href="javascript:;" class="toggle-btn ms-auto"> <i class="bx bx-menu"></i>
+				</a>
+			</div>
+			<!--navigation-->
+			<ul class="metismenu" id="menu">
+				<li>
+					<a href="{% url 'dashboard' %}">
+						<div class="parent-icon icon-color-1"><i class="bx bx-home-alt"></i>
+						</div>
+
+						<div class="menu-title">Dashboard</div>
+					</a>
+				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon icon-color-10"><i class="bx bx-file"></i>
+						</div>
+						<div class="menu-title">Brand</div>
+					</a>
+					<ul>
+						<li> <a href="/add_brand/"><i class="bx bx-right-arrow-alt"></i>Add Brand</a>
+						</li>
+						<li> <a href="/view_brand/"><i class="bx bx-right-arrow-alt"></i>Manage Brand</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon icon-color-11"><i class="bx bx-folder"></i>
+						</div>
+						<div class="menu-title">Product</div>
+					</a>
+					<ul>
+						<li> <a href="/add_product/"><i class="bx bx-right-arrow-alt"></i>Add Product</a>
+						</li>
+						<li> <a href="/view_product/"><i class="bx bx-right-arrow-alt"></i>Manage Product</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon icon-color-12"> <i class="bx bx-copy"></i>
+						</div>
+						<div class="menu-title">Pages</div>
+					</a>
+					<ul>
+						<li> <a href="/edit_about/"><i class="bx bx-right-arrow-alt"></i>About Us</a>
+						</li>
+						<li> <a href="/edit_contact/"><i class="bx bx-right-arrow-alt"></i>Contact Us</a>
+						</li>
+					</ul>
+				</li>
+
+
+
+
+				<li>
+					<a href="/reg_user/">
+						<div class="parent-icon icon-color-5"> <i class="bx bx-user"></i>
+						</div>
+						<div class="menu-title" >Reg Users</div>
+					</a>
+				</li>
+				<li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon icon-color-9"><i class="bx bx-copy-alt"></i>
+						</div>
+						<div class="menu-title">Booking For Rent</div>
+					</a>
+					<ul>
+						<li> <a href="/new_booking/?action=New"><i class="bx bx-right-arrow-alt"></i>New Booking</a>
+						</li>
+						<li> <a href="/new_booking/?action=Approved"><i class="bx bx-right-arrow-alt"></i>Approved Booking</a>
+						</li>
+						<li> <a href="/new_booking/?action=Unapproved"><i class="bx bx-right-arrow-alt"></i>Unapproved Booking</a>
+						</li>
+						<li> <a href="/new_booking/?action=Total"><i class="bx bx-right-arrow-alt"></i>All Booking</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon icon-color-10"><i class="bx bx-copy-alt"></i>
+						</div>
+						<div class="menu-title">Report</div>
+					</a>
+					<ul>
+						<li> <a href="/admin_report/"><i class="bx bx-right-arrow-alt"></i>B/w dates Reports</a>
+						</li>
+						<li> <a href="/count_report/"><i class="bx bx-right-arrow-alt"></i>Count Report</a>
+						</li>
+						<li> <a href="/report/"><i class="bx bx-right-arrow-alt"></i>Sales Report</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a class="has-arrow" href="javascript:;">
+						<div class="parent-icon icon-color-11"><i class="bx bx-search"></i>
+						</div>
+						<div class="menu-title">Search Booking</div>
+					</a>
+					<ul>
+						<li> <a class="has-arrow" href="/search_booking/"><i class="bx bx-right-arrow-alt"></i>Search Booking</a>
+							<ul>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+			<!--end navigation-->
+		</div>
+		<!--end sidebar-wrapper-->
+		<!--header-->
+		<header class="top-header">
+			<nav class="navbar navbar-expand">
+				<div class="left-topbar d-flex align-items-center">
+					<a href="javascript:;" class="toggle-btn">	<i class="bx bx-menu"></i>
+					</a>
+				</div>
+				<div class="right-topbar ms-auto">
+					<ul class="navbar-nav">
+						<li class="nav-item search-btn-mobile">
+							<a class="nav-link position-relative" href="javascript:;">	<i class="bx bx-search vertical-align-middle"></i>
+							</a>
+						</li>
+						<li class="nav-item dropdown dropdown-lg">
+{% pendingbook '' '' as pending %}
+						<li class="nav-item dropdown dropdown-lg">
+							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="javascript:;" data-bs-toggle="dropdown">	<i class="bx bx-bell vertical-align-middle"></i>
+								<span class="msg-count">{{pending.count}}</span>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a href="javascript:;">
+									<div class="msg-header">
+
+										<h6 class="msg-header-title">{{pending.count}} New</h6>
+										<p class="msg-header-subtitle">Booking Notifications</p>
+									</div>
+								</a>
+								<div class="header-notifications-list">
+									{% for i in pending %}
+									<a class="dropdown-item" href="/booking_detail/{{i.id}}/">
+										<div class="d-flex align-items-center">
+											<div class="notify bg-light-mehandi text-mehandi">
+												<img src="{% if i.productname.image1 %}{{i.productname.image1.url}}{% endif %}" style="width:50px;height:50px"/>
+											</div>
+											<div class="flex-grow-1">
+												<h6 class="msg-name" href="">{{i.productname.productname}}<span class="msg-time float-end">{{i.bookingdate}}</span></h6>
+												<p class="msg-info">{{i.bookingnumber}}</p>
+											</div>
+										</div>
+									</a>
+									{% endfor %}
+								</div>
+								<a href="/new_booking/?action=Total">
+									<div class="text-center msg-footer">View All Booking</div>
+								</a>
+							</div>
+						</li>
+						<li class="nav-item dropdown dropdown-user-profile">
+							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+								<div class="d-flex user-box align-items-center">
+									<div class="user-info">
+										<p class="user-name mb-0">Admin</p>
+									</div>
+									<img src="{% static 'assets/images/avatars/images.jpg' %}" class="user-img" alt="user avatar">
+								</div>
+							</a>
+							<div class="dropdown-menu dropdown-menu-end">
+								<a class="dropdown-item" href="/change_password/"><i
+										class="bx bx-cog"></i><span>Settings</span></a>
+								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="/logout_admin/"><i
+										class="bx bx-power-off"></i><span>Logout</span></a>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		{% block body %}
+		{% endblock %}
+		<!--end header-->
+
+		<!--start overlay-->
+		<div class="overlay toggle-btn-mobile"></div>
+		<!--end overlay-->
+		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+		<!--End Back To Top Button-->
+		<!--footer -->
+		<!-- end footer -->
+	</div>
+
+	   <!--end switcher-->
+	<!-- JavaScript -->
+	<!-- Bootstrap JS -->
+
+	<script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+	<!--plugins-->
+	<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/simplebar/js/simplebar.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/metismenu/js/metisMenu.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js' %}"></script>
+	<!-- Vector map JavaScript -->
+	<script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js' %}"></script>
+	<script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js' %}"></script>
+	<script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-in-mill.js' %}"></script>
+	<script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-us-aea-en.js' %}"></script>
+	<script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-uk-mill-en.js' %}"></script>
+	<script src="{% static 'assets/plugins/vectormap/jquery-jvectormap-au-mill.js' %}"></script>
+	<script src="{% static 'assets/plugins/apexcharts-bundle/js/apexcharts.min.js' %}"></script>
+	<script src="{% static 'assets/js/index2.js' %}"></script>
+	<!-- App JS -->
+	<script src="{% static 'assets/js/app.js' %}"></script>
+{% for i in messages %}
+<script>
+alert('{{i}}');
+</script>
+{% endfor %}
+</body>
+
+
+<!-- Mirrored from codervent.com/syndash/demo/vertical/admin_index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2022 07:52:11 GMT -->
+</html>
