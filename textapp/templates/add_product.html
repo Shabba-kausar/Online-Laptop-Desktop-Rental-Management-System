@@ -1,0 +1,96 @@
+{% extends 'admin_index.html' %}
+{% block body %}
+<div class="page-wrapper">
+			<!--page-content-wrapper-->
+			<div class="page-content-wrapper">
+				<div class="page-content">
+<h6 class="mb-0 text-uppercase">Add Product</h6>
+							<hr>
+							<div class="card">
+								<div class="card-body">
+									<form action="" method="post" enctype="multipart/form-data">
+										{% csrf_token %}
+										<div class="row">
+										<div class="mb-3 col-6 " >
+											<label class="form-label">Type:</label>
+											<select type="text" class="form-control" name="typename">
+											<option value="">Choose Type</option>
+                                            <option>Laptop</option>
+                                            <option>Desktop</option>
+                                            </select>
+                                        </div>
+										<div class="mb-3 col-6">
+											<label>Brand Name:</label>
+												<select class="form-control" name="brandname" id="brandid" style="width: 100%;" onchange="brandfield()">
+													<option value="">Select brand</option>
+													{% for i in mybrand %}
+													<option value="{{i.id}}" {% if request.GET.brandname == i.id|lower %}selected{% endif %}>{{i.brandname}}</option>
+													{% endfor %}
+
+												</select>
+
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Product Name:</label>
+											<input type="text" class="form-control" name="productname">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Processor:</label>
+											<input type="text" class="form-control" name="processor">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Screen:</label>
+											<input type="text" class="form-control" name="screen">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Ram:</label>
+											<input type="text" class="form-control" name="ram">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Storage:</label>
+											<input type="text" class="form-control" name="storage">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Charges:</label>
+											<input type="text" class="form-control" name="charges">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Rental Price/Day:</label>
+											<input type="text" class="form-control" name="rentalprice">
+										</div>
+                                        <div class="mb-3 col-6">
+											<label class="form-label">Product Model:</label>
+											<input type="text" class="form-control" name="productmodel">
+										</div>
+										<div class="form-group">
+										  <label>Product Description:</label>
+												<textarea class="form-control select2bs4" name="description" placeholder="Write you description" style="width: 100%;"></textarea>
+										  </div>
+										<div class="mb-3 col-6">
+											<label class="form-label">Image1:</label>
+											<input type="file" class="form-control" name="image1">
+										</div>
+										<div class="mb-3 col-6">
+											<label class="form-label">Image2:</label>
+											<input type="file" class="form-control" name="image2">
+										</div>
+										</div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+									</form>
+								</div>
+							</div>
+                </div>
+            </div>
+</div>
+<script>
+    function brandfield(){
+        brandid = document.getElementById('brandid').value;
+        window.location = "?brandname="+brandid;
+    }
+
+</script>
+
+
+
+
+{% endblock %}

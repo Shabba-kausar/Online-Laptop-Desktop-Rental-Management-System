@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+<!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h6 class="display-3 text-uppercase text-white mb-3">Sign Up</h6>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">Sign Up</h6>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+    <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="mb-4">REGISTRATION DETAILS</h2>
+                 <form action="/user_signup/" method="post">
+                    {% csrf_token %}
+                    <div class="mb-5">
+                        <div class="">
+                            <div class="col-12 form-group">
+                                <label>First name:</label>
+                                <input type="text" class="form-control" name="firstname">
+                            </div>
+                            <div class="col-12 form-group">
+                                <label>Second Name:</label>
+                                <input type="text" class="form-control" name="secondname">
+                            </div>
+                             <div class="col-12 form-group">
+                                <label>Email:</label>
+                                <input type="text" class="form-control" name="email">
+                            </div>
+                             <div class="col-12 form-group">
+                                <label>Mobile Number:</label>
+                                <input type="text" class="form-control" name="mobile">
+                            </div>
+                             <div class="col-12 form-group">
+                                <label>Password:</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" href="">SIGN UP</button>
+                    </div>
+                 </form>
+                </div>
+            </div>
+    </div>
+{% endblock %}

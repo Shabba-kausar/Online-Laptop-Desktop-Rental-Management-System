@@ -1,0 +1,106 @@
+{% extends 'admin_index.html' %}
+{% load static %}
+{% block body %}
+
+
+<div class="content-wrapper">
+    <section class="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2 class="mb-0 text-uppercase">{{request.GET.action}} Booking Details of Laptop and Desktop</h2>
+			<hr>
+              <div class="card">
+              <div class="card-body">
+                <table id="example" class="table table-bordered table-striped">
+                 <tbody>
+                  <tr>
+                   <h4 style="color:blue"><center <th>User Details</th></h4>
+                  </tr>
+                  <tr>
+                    <th>Full Name</th>
+                    <td>{{i.user.user.first_name}}</td>
+                    <th>Email</th>
+                    <td>{{booking.email}}</td>
+                    <th>Mobile Number</th>
+                    <td>{{booking.mobile}}</td>
+                  </tr>
+                </table>
+                <table id="example1" class="table table-bordered table-striped">
+                  <tr>
+                  <h3 style="color:blue"><center <th>Product Details</th></h3>
+                  </tr>
+                  <tr>
+                   <th>Name of Product</th>
+                    <td>{{booking.productname.productname}}</td>
+                    <th>Brand Name</th>
+                    <td>{{booking.productname.brandname}}</td>
+                    <th>Processor</th>
+                    <td>{{booking.product.processor}}</td>
+                  </tr>
+                  <tr>
+                    <th>Screen</th>
+                    <td>{{booking.product.screen}}</td>
+                    <th>RAM</th>
+                    <td>{{booking.product.ram}}</td>
+                    <th>Storage</th>
+                    <td>{{booking.product.storage}}</td>
+                  </tr>
+                  <tr>
+                    <th>Charges</th>
+                    <td>{{booking.product.charges}}</td>
+                    <th>RentalPrice(per day)</th>
+                    <td>{{booking.product.rentalprice}}</td>
+                    <th>Product Model</th>
+                    <td>{{booking.product.productmodel}}</td>
+                  </tr>
+                  <tr>
+                    <th>Product Description</th>
+                    <td>{{booking.product.description}}</td>
+                  </tr>
+                </table>
+                <table id="example3" class="table table-bordered table-striped">
+                  <tr>
+                  <h3 style="color:blue"><center <th>Booking Details</th></h3>
+                  </tr>
+                  <tr>
+                    <th>Booking Date</th>
+                    <td>{{booking.bookingdate}}</td>
+                  </tr>
+                  <tr>
+                    <th>From Date</th>
+                    <td>{{booking.fromdate}}</td>
+                    <th>To Date</th>
+                    <td>{{booking.todate}}</td>
+                    <th>Order Quantity</th>
+                    <td>{{booking.quantity}}</td>
+                  </tr>
+                  <tr>
+                    <th>Total Days of Rent</th>
+                    <td>{{booking.rent}}</td>
+                    <th>Rental Price</th>
+                    <td>{{booking.productname.rentalprice}}</td>
+                    <th>Total Cost</th>
+                    <td>{{booking.totalprice}}</td>
+                  </tr>
+
+                    <tr>
+                    <th>Booking Number</th>
+                    <td>{{booking.bookingnumber}}</td>
+                    <th>Brand Name</th>
+                    <td>{{booking.productname.brandname}}</td>
+                    <th>Order Final Status</th>
+                    <td>{{booking.status}}</td>
+                  </tr>
+                </table>
+              </div>
+                  {% endfor %}
+              </div>
+
+              <!-- /.card-body -->
+            </div>
+          </div>
+        </div>
+    </section>
+    </div>
+{% endblock %}

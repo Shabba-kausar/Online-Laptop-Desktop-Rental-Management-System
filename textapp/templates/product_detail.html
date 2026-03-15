@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h3 class="display-3 text-uppercase text-white mb-3">Single Product Details</h3>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="{% url 'home' %}">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">Single Product Details</h6>
+        </div>
+    </div>
+<!-- Page Header Start -->
+<!-- Detail Start -->
+        <div class="container pt-5 pb-3">
+            <h4 class="display-4 mb-5">{{product.productname}}</h4>
+            <div class="row align-items-center pb-2">
+                <div class="col-lg-6 mb-4">
+                    <img class="img-fluid" style="height:250px" src="{{product.image1.url}}" alt="">
+                </div>
+                <div class="col-lg-6 mb-4">
+                    <label>Rent Price*:</label>
+                    <h4 class="mb-2">{{product.rentalprice}} Rs./Day</h4>
+                    <button type="submit" class="btn btn-primary" ><h4>Product Description</h4></button>
+                    <p>{{product.description}}</p>
+                </div>
+            </div>
+                    <div class=" col-4 text-left">
+                            <div class="receipt-right">
+                                <p><b>Type: </b>#{{product.typename}}</p>
+                                <p><b>Processor: </b>#{{product.processor}}</p>
+                                <p><b>Screen: </b>#{{product.screen}}</p>
+                                <p><b>RAM: </b>#{{product.ram}}</p>
+                                <p><b>Storage: </b>#{{product.storage}}</p>
+                                <p><b>Charges: </b>#{{product.charges}}</p>
+                                <p><b>Rental Price: </b>#{{product.rentalprice}} Rs.(Per Day){</p>
+                                <p><b>Product Model: </b>#{{product.productmodel}}</p>
+                            </div>
+                        <a class="btn btn-primary px-3" href="/book_laptop/{{product.id}}/">Book Now</a>
+                    </div>
+            </div>
+
+<!-- Detail End -->
+{% endblock %}

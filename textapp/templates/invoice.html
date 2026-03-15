@@ -1,0 +1,42 @@
+{% load static %}
+
+<div class="table-responsive container" align="center"  style="width:100%;float:center">
+    <div class=" col-12 receipt-right">
+        <div class="text-left">
+              <p><b>Invoice of</b>#{{booking.bookingnumber}}</p>
+        </div>
+    </div>
+
+			<table border="1" id="example" class="table table-striped table-bordered" style="width:100%">
+				<thead>
+				<tr>
+					<th>S.NO</th>
+					<th>BOOKING NUMBER</th>
+					<th>BOOKING DATE</th>
+					<th>FROM DATE</th>
+					<th>TO DATE</th>
+					<th>PRODUCT IMAGE</th>
+					<th>PRODUCT NAME</th>
+					<th>QUANTITY</th>
+					<th>RENTAL PRICE</th>
+					<th>TOTAL PRICE</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td>1</td>
+					<td>{{booking.bookingnumber}}</td>
+					<td>{{booking.bookingdate}}</td>
+					<td>{{booking.fromdate}}</td>
+					<td>{{booking.todate}}</td>
+					<td><img class="img-fluid" style="height:150px;width:100%" src="{{booking.productname.image1.url}}" alt=""></td>
+					<td>{{booking.productname.productname}}</td>
+					<td>{{booking.quantity}}</td>
+					<td>{{booking.productname.rentalprice}}</td>
+					<td>{{booking.totalprice}}</td>
+				</tr>
+			</table>
+</div>
+<input type="button" id="button-submit" value="Print" onclick="window.print()">
+  </div>
+
